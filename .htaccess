@@ -1,0 +1,3 @@
+RewriteEngine ON
+RewriteRule ^accueil$ index.php
+RewriteRule ^inscription$ controllers/inscriptionController.php
