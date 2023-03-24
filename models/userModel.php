@@ -17,7 +17,7 @@ class users extends database{
 
     public function addUser(){
         $query = "INSERT INTO `" . $this->prefix . "users`(`firstName`, `lastName`, `city`, `email`, `major`, `phoneNumber`, `password`) 
-        VALUES (':firstName',':lastName',':city',':email',:major,':phoneNumber',':password')";
+        VALUES (:firstName, :lastName, :city, :email, :major, :phoneNumber, :password)";
         $request = $this->db->prepare($query);
         $request->bindValue(':firstName', $this->firstName, PDO::PARAM_STR);
         $request->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
@@ -25,9 +25,35 @@ class users extends database{
         $request->bindValue(':email', $this->email, PDO::PARAM_STR);
         $request->bindValue(':major', $this->major, PDO::PARAM_INT);
         $request->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
-        $request->bindValue('password', $this->password, PDO::PARAM_STR);
+        $request->bindValue(':password', $this->password, PDO::PARAM_STR);
         return $request->execute();
     }
 
-    
+    public function checkIfUserExists($column){
+        $query = 'SELECT count(' . $column . ')
+        FROM `' . $this->prefix . 'users` 
+        WHERE ' . $column . ' = :' . $column;
+        $request = $this->db->prepare($query);
+        $request->bindValue(':' . $column, $this->{$column}, PDO::PARAM_STR);
+        $request->execute();
+        return $request->fetch(PDO::FETCH_COLUMN);
+    }
+
+    public function getPass(){
+        $query = 'SELECT password FROM `abzr6_users`
+        WHERE abzr6_users.email = :email';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $request->execute();
+        return $request->fetch(PDO::FETCH_COLUMN);
+    }
+
+    public function getId(){
+        $query = 'SELECT id FROM abzr6_users
+        WHERE email = :email';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $request->execute();
+        return $request->fetch(PDO::FETCH_ASSOC);
+    }
 }

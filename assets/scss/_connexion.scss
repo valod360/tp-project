@@ -1,12 +1,14 @@
-#registerForm {
+#connexionForm {
     display: flex;
     justify-content: center;
     background-color: rgb(205, 205, 205);
-    margin: 1% 30% 0 30%;
+    margin: 15% 40% 0 40%;
     border-radius: 5px;
+    align-items: center;
+    flex-direction: column;
 
     div {
-        padding: 10%;
+        padding: 2%;
 
         input {
             margin-top: 2%;
@@ -57,20 +59,5 @@
                 text-shadow: none;
             }
         }
-    }
-}
-
-.formStatus {
-    padding: 2rem;
-    &.fail {
-        background-color: #f25457;
-        color: white;
-        text-align: center;
-    }
-
-    &.success {
-        background-color: #a3f7bf;
-        color: black;
-        text-align: center;
     }
 }

@@ -1,3 +1,6 @@
 RewriteEngine ON
 RewriteRule ^accueil$ index.php
 RewriteRule ^inscription$ controllers/inscriptionController.php
+RewriteRule ^connexion$ controllers/connexionController.php
+RewriteRule ^deconnexion$ controllers/deconnexionController.php
+RewriteRule ^réservation$ controllers/planeReservationController.php

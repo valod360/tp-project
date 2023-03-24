@@ -1,7 +1,7 @@
 <?php
 class database{
     protected $db;
-    protected string $prefix = 'abrzr6_';
+    protected string $prefix = 'abzr6_';
 
     public function connect(){
         try{
