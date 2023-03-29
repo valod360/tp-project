@@ -6,6 +6,7 @@ if(!isset($_SESSION['user'])){
 }
 
 require_once '../models/database.php';
+require_once '../models/planesModel.php';
 require_once '../models/userModel.php';
 require_once '../config.php';
 
@@ -18,14 +19,10 @@ require_once '../config.php';
  */
 
 if(count($_POST) > 0){
-    $res = new reservation;
-    $resList = $res->checkIfAvailable();
-    var_dump($resList);
-    /*if(!empty($_POST['dr-400'])){
-        if($resList == 'disponible'){
-            var_dump('c bon tkt');
-        }
-    }*/
+    $plane = new planes;
+    if(isset($_POST['resource_id'])){
+       var_dump($plane->checkIfAvailable());
+    }
 }
 
 
