@@ -19,10 +19,12 @@ class reservation extends database{
         WHERE ((loan BETWEEN :startLoan AND :endLoan) 
         OR (loanReturn BETWEEN :startLoan AND :endLoan) 
         OR (:startLoan BETWEEN loan AND loanReturn) 
-        OR (:endLoan BETWEEN loan AND loanReturn))';
+        OR (:endLoan BETWEEN loan AND loanReturn))
+        AND id_planes = :id_planes';
         $request = $this->db->prepare($query);
         $request->bindValue(':startLoan', $this->startLoan, PDO::PARAM_STR);
         $request->bindValue(':endLoan', $this->endLoan, PDO::PARAM_STR);
+        $request->bindValue(':id_planes', $this->id_planes, PDO::PARAM_INT);
         $request->execute();
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
@@ -40,5 +42,16 @@ class reservation extends database{
         $request->bindValue(':id_planes', $this->id_planes, PDO::PARAM_STR);  
         return $request->execute();    
     }
+
+
+
+    /**
+    * requête pour pouvoir voir les reservation faite:
+    * 
+    * SELECT abzr6_reservations.loan, abzr6_reservations.loanReturn, abzr6_planes.name, abzr6_planes.images, abzr6_users.firstName, abzr6_users.lastName FROM abzr6_reservations
+    *  LEFT JOIN abzr6_planes ON abzr6_reservations.id_planes = abzr6_planes.id
+    *   LEFT JOIN abzr6_users ON abzr6_reservations.id_users = abzr6_users.id
+    *  WHERE abzr6_users.id = 6;         
+    */
 
 }

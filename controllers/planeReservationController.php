@@ -29,7 +29,7 @@ if (count($_POST) > 0) {
                 if ($plane->checkIfAvailable() == 'disponible') {
                     $plane->name = $resourceData[1];
                     $plane->status = 'indisponible';
-                    $res->id_planes = $resourceData[0];
+                    $res->id_planes = intval($resourceData[0]);
                 } else {
                     $formErrors['planeSelection'] = PLANE_SECTION_ERROR_NOT_AVAILABLE;
                 }
@@ -94,7 +94,6 @@ if (count($_POST) > 0) {
 
                 } else {
                     $res->insertLoan();
-                    $plane->updatePlanesStatus();
                     $form = [
                         'status' => 'success',
                         'message' => RESERVATION_SCCUESS

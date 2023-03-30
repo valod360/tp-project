@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 30 mars 2023 à 12:27
+-- Généré le : jeu. 30 mars 2023 à 18:02
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -73,8 +73,8 @@ DROP TABLE IF EXISTS `abzr6_planes`;
 CREATE TABLE IF NOT EXISTS `abzr6_planes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
+  `images` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `description` text NOT NULL,
-  `status` varchar(25) NOT NULL,
   `price` int NOT NULL,
   `id_abrzr6_engine` int NOT NULL,
   `id_abzr6_aerodromes` int NOT NULL,
@@ -87,9 +87,9 @@ CREATE TABLE IF NOT EXISTS `abzr6_planes` (
 -- Déchargement des données de la table `abzr6_planes`
 --
 
-INSERT INTO `abzr6_planes` (`id`, `name`, `description`, `status`, `price`, `id_abrzr6_engine`, `id_abzr6_aerodromes`) VALUES
-(6, 'DR-400', '50hr', 'disponible', 175, 1, 1),
-(7, 'cessna-citation', '', 'indisponible', 200, 1, 1);
+INSERT INTO `abzr6_planes` (`id`, `name`, `images`, `description`, `price`, `id_abrzr6_engine`, `id_abzr6_aerodromes`) VALUES
+(6, 'DR-400', '', '50hr', 175, 1, 1),
+(7, 'cessna-citation', '', '', 200, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -110,14 +110,16 @@ CREATE TABLE IF NOT EXISTS `abzr6_reservations` (
   PRIMARY KEY (`id`),
   KEY `reservations_users_FK` (`id_users`),
   KEY `reservations_planes0_FK` (`id_planes`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `abzr6_reservations`
 --
 
 INSERT INTO `abzr6_reservations` (`id`, `loan`, `loanReturn`, `price`, `caution`, `activityType`, `id_users`, `id_planes`) VALUES
-(3, '2023-03-30 00:00:00', '2023-04-06 00:00:00', 0, 2023, 'Réservation', 6, 7);
+(7, '2023-04-19 00:00:00', '2023-04-30 00:00:00', 0, 2023, 'Réservation', 6, 6),
+(8, '2023-03-30 00:00:00', '2023-03-31 00:00:00', 0, 2023, 'Réservation', 6, 6),
+(9, '2023-04-07 00:00:00', '2023-04-09 00:00:00', 0, 2023, 'Réservation', 6, 6);
 
 -- --------------------------------------------------------
 

@@ -4,3 +4,4 @@ RewriteRule ^inscription$ controllers/inscriptionController.php
 RewriteRule ^connexion$ controllers/connexionController.php
 RewriteRule ^deconnexion$ controllers/deconnexionController.php
 RewriteRule ^réservation$ controllers/planeReservationController.php
+RewriteRule ^réservation-perso$ controllers/reservationsController.php
