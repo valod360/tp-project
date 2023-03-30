@@ -1,7 +1,31 @@
-.plane{
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-    align-items: center;
-    flex-direction: column;
+.planeReservationContainer {
+    background-color: rgb(235, 235, 235);
+    margin: 25vh 30% 0 30%;
+    padding: 5% 0 5% 0;
+    text-align: center;
+    
+}
+.formError{
+        color: red;
+        font-size: 0.8em;
+    }
+.planeReservationTitle {
+    padding: 0;
+
+    >h2 {
+        font-size: xx-large;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .planeReservationContainer {
+        background-color: #ebebeb;
+        margin: 20vh 10% 0 10%;
+        padding: 5% 0 5% 0;
+        text-align: center;
+    }
 }

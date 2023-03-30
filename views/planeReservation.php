@@ -1,6 +1,15 @@
 <!-- pour la reservation j'ai besoin de la date de la durée et de l'appareil a reservé -->
 
-<section>
+<?php if(isset($form)){ ?>
+    <div class="formStatus <?= $form['status'] ?>">
+        <p><?= $form['message'] ?></p>
+    </div>
+<?php }else{ ?>
+<section class="planeReservationTitle">
+    <h2>Réservé votre avion !</h2>
+</section>
+
+<section class="planeReservationContainer">
     <form action="/réservation" method="post">
 
 
@@ -20,23 +29,23 @@
             <?php } ?>
         </select>
         <?php if (isset($formErrors['planeSelection'])) { ?>
-            <p><?= $formErrors['planeSelection'] ?></p>
+            <p class="formError"><?= $formErrors['planeSelection'] ?></p>
         <?php } ?>
 
 
 
+        <div>
+            <!-- pour les checkbox reservation et achat a faire plus tard pour le check modification de la bdd a faire-->
+            <label for="planeRes_reservation">Réservation</label>
+            <input type="radio" id="planeRes_reservation" name="planeRes" value="reservation">
 
-        <!-- pour les checkbox reservation et achat a faire plus tard pour le check modification de la bdd a faire-->
-        <label for="planeRes_reservation">Réservation</label>
-        <input type="radio" id="planeRes_reservation" name="planeRes" value="reservation">
+            <label for="planeRes_achat">Achat</label>
+            <input type="radio" id="planeRes_achat" name="planeRes" value="achat">
 
-        <label for="planeRes_achat">Achat</label>
-        <input type="radio" id="planeRes_achat" name="planeRes" value="achat">
-
-        <?php if(isset($formErrors['radio'])){ ?>
-            <p><?= $formErrors['radio'] ?></p>
-        <?php } ?>
-
+            <?php if (isset($formErrors['radio'])) { ?>
+                <p class="formError"><?= $formErrors['radio'] ?></p>
+            <?php } ?>
+        </div>
 
 
 
@@ -48,7 +57,7 @@
             <input type="date" name="startLoan" id="startLoan">
 
             <?php if (isset($formErrors['loan'])) { ?>
-                <p><?= $formErrors['loan'] ?></p>
+                <p class="formError"><?= $formErrors['loan'] ?></p>
             <?php } ?>
 
 
@@ -57,16 +66,19 @@
             <label for="endLoan">Fin de la reservation</label>
             <input type="date" name="endLoan" id="endLoan">
 
-            <?php if(isset($formErrors['loanReturn'])){ ?>
-                <p><?= $formErrors['loanReturn'] ?></p>
+            <?php if (isset($formErrors['loanReturn'])) { ?>
+                <p class="formError"><?= $formErrors['loanReturn'] ?></p>
             <?php } ?>
 
 
 
         </div>
         <a class="button flat big standard" href="index.php?menuAction=&amp;tsOldStartDate=20230328111500">Revenir à la page précédente</a>
-        <input type="submit" value="Enregistrer" name="validation" id="validation" class="button flat big blue">
+        <div>
+            <input type="submit" value="Enregistrer" name="validation" id="validation" class="button flat big blue">
+        </div>
 
 
     </form>
 </section>
+<?php } ?>

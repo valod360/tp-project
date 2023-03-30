@@ -54,12 +54,21 @@ define('USER_LOGIN_ERROR', 'l\'email ou le mot de passe est incorrect');
 define('USER_PASSWORD_ERROR_EMPTY', 'Le champ pour le mot de passe n\'est pas renseigner');
 
 
+
+
+
+
+
+
+
+
+
 //pour la plane reservation
 
 define('PLANE_SECTION_ERROR_EMPTY', 'Le choix d\'un appareil est obligatoire');
 define('PLANE_SECTION_ERROR_NOT_AVAILABLE', 'l\'avion choisi n\'est plus disponible ou à déja été réserver');
 
-define('PLANE_ERROR_TAKEN', 'Cette avion à déjà été réserver');
+define('PLANE_ERROR_TAKEN', 'Les horraire pour cette avion sont déja pris');
 
 //pour les date
 define('LOAN_ERROR_EMPTY', 'Veuillez indiquer une date de reservation');
@@ -70,6 +79,9 @@ define('LOAN_ERROR_BEFORE_FIRST_DATE', 'Merci d\'indiquez une date superieur a l
 
 // pour les radio
 define('RADIO_ERROR_EMPTY', 'veuillez selectioner soient l\'achat soient la réservation');
+
+//pour la reussite de la reservation
+define('RESERVATION_SCCUESS', 'La réservation à été effectuer');
 
 
 

@@ -29,7 +29,7 @@ class planes extends database
     }
 
     public function checkPlanes(){
-        $query = 'SELECT name, id FROM abzr6_planes';
+        $query = 'SELECT name, id, status FROM abzr6_planes';
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
@@ -42,4 +42,18 @@ class planes extends database
         return $request->execute();
     }
 
+    public function updatePlaneStatusAvailable(){
+        $query = 'UPDATE abzr6_planes SET status="disponible"
+        WHERE abzr6_planes.name = :name';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':name', $this->name, PDO::PARAM_STR);
+        return $request->execute();
+    }
+
 }
+
+
+
+/*SELECT abzr6_planes.id AS planeId, if(loanReturn IS NOT NULL,IF(NOW() > loanReturn, 'disponible', 'indispo'), 'disponible')
+FROM `abzr6_planes`
+LEFT JOIN abzr6_reservations ON id_planes = abzr6_planes.id;*/

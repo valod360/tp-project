@@ -87,14 +87,18 @@ if (count($_POST) > 0) {
         /* pour le push et la mis à jours */
         if (count($formErrors) ==  0) {
             $res->id_user = $_SESSION['user']['id'];
-            var_dump($res);
             $available = $res->checkLoan();
             if ($res->loanReturn >= $res->loan) {
                 if (count($available) > 0) {
                     $formErrors['planeSelection'] = PLANE_ERROR_TAKEN;
+
                 } else {
                     $res->insertLoan();
                     $plane->updatePlanesStatus();
+                    $form = [
+                        'status' => 'success',
+                        'message' => RESERVATION_SCCUESS
+                    ];
                 }
             }else{
                 $formErrors['loanReturn'] = LOAN_ERROR_BEFORE_FIRST_DATE;
