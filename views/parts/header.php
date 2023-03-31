@@ -17,6 +17,7 @@
         </ul>
         <ul class="horizontalList">
             <?php if(isset($_SESSION['user'])){ ?>
+                <li><a href="/réservation-perso">mes avions reservé</a></li>
                 <li><a href="/réservation">reservé un avion</a></li>
                 <li><a href="/deconnexion">deconnexion</a></li>
             <?php }else{?>

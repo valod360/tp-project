@@ -44,14 +44,23 @@ class reservation extends database{
     }
 
 
+    public function seeLoan(){
+        $query = 'SELECT abzr6_reservations.loan, abzr6_reservations.loanReturn, abzr6_planes.name, abzr6_planes.images, abzr6_users.firstName, abzr6_users.lastName FROM abzr6_reservations
+        LEFT JOIN abzr6_planes ON abzr6_reservations.id_planes = abzr6_planes.id
+        LEFT JOIN abzr6_users ON abzr6_reservations.id_users = abzr6_users.id
+        WHERE abzr6_users.id = :id';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':id', $this->id_user);
+        $request->execute();
+        return $request->fetchAll(PDO::FETCH_OBJ);
+    }
 
-    /**
-    * requête pour pouvoir voir les reservation faite:
-    * 
-    * SELECT abzr6_reservations.loan, abzr6_reservations.loanReturn, abzr6_planes.name, abzr6_planes.images, abzr6_users.firstName, abzr6_users.lastName FROM abzr6_reservations
-    *  LEFT JOIN abzr6_planes ON abzr6_reservations.id_planes = abzr6_planes.id
-    *   LEFT JOIN abzr6_users ON abzr6_reservations.id_users = abzr6_users.id
-    *  WHERE abzr6_users.id = 6;         
-    */
+
+    public function dropReservation(){
+        $query = 'DELETE FROM abzr6_reservations WHERE abzr6_reservations.id = :id';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':id', $this->id_planes);
+        return $request->execute();
+    }
 
 }
