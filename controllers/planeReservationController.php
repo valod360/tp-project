@@ -43,7 +43,7 @@ if (count($_POST) > 0) {
          */
 
         if (!empty($_POST['startLoan'])) {
-            if ($_POST['startLoan'] >= date('Y-m-j')) {
+            if ($_POST['startLoan'] >= date('Y-m-d')) {
                 $res->loan = $_POST['startLoan'];
                 $res->startLoan = $_POST['startLoan'];
             }
@@ -91,12 +91,11 @@ if (count($_POST) > 0) {
             if ($res->loanReturn >= $res->loan) {
                 if (count($available) > 0) {
                     $formErrors['planeSelection'] = PLANE_ERROR_TAKEN;
-
                 } else {
-                    $res->insertLoan();
+                    $res->updateReservation();
                     $form = [
                         'status' => 'success',
-                        'message' => RESERVATION_SCCUESS
+                        'message' => MODIFICATION_SUCCESS
                     ];
                 }
             }else{

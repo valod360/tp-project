@@ -84,4 +84,11 @@ define('RADIO_ERROR_EMPTY', 'veuillez selectioner soient l\'achat soient la rés
 define('RESERVATION_SCCUESS', 'La réservation à été effectuer');
 
 
+//pour la modification d'une reservation
+
+define('MODIFICATION_SUCCESS', 'La modification à été faire avec succes');
+
+
+
+
 

@@ -3,14 +3,17 @@
     margin: 25vh 30% 0 30%;
     padding: 5% 0 5% 0;
     text-align: center;
-    
+
 }
-.formError{
-        color: red;
-        font-size: 0.8em;
-    }
+
+.formError {
+    color: red;
+    font-size: 0.8em;
+}
+
 .planeReservationTitle {
     padding: 0;
+
     >h2 {
         font-size: xx-large;
         padding: 0;
@@ -19,7 +22,7 @@
     }
 }
 
-
+//media pour le formulaire
 @media screen and (max-width: 767px) {
     .planeReservationContainer {
         background-color: #ebebeb;
@@ -29,19 +32,43 @@
     }
 }
 
-.cardContainer{
+.cardContainer {
     background-color: rgb(235, 235, 235);
     margin: 0 20% 0 20%;
     text-align: center;
-    p{
+
+    p {
         font-family: 'Poppins', sans-serif;
         text-align: center;
     }
 }
 
-.sectionSeeReservation{
-    >p{
+.sectionSeeReservation {
+    >p {
         text-align: center;
         font-size: 1.5em;
+    }
+}
+
+
+//media pour la page des reservation effectuer
+@media screen and (max-width: 1350px) {
+    .reservationImage{
+        width: 700px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .reservationImage{
+        width: 500px;
+    }
+}
+@media screen and (max-width: 850px) {
+    .reservationImage{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .reservationImage{
+        width: 200px;
     }
 }
