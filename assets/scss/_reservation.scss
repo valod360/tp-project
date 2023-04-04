@@ -72,3 +72,39 @@
         width: 200px;
     }
 }
+//pour les modification de la reservation
+
+.resModifView{
+text-align: center;
+}
+.resModifForm{
+    margin: 20vh 10% 0 10%;
+    padding: 5% 0 5% 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(235, 235, 235);
+
+}
+
+//media pour la page des reservation effectuer
+@media screen and (max-width: 1350px) {
+    .reservationImage{
+        width: 700px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .reservationImage{
+        width: 500px;
+    }
+}
+@media screen and (max-width: 850px) {
+    .reservationImage{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .reservationImage{
+        width: 200px;
+    }
+}

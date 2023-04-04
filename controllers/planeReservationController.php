@@ -92,7 +92,7 @@ if (count($_POST) > 0) {
                 if (count($available) > 0) {
                     $formErrors['planeSelection'] = PLANE_ERROR_TAKEN;
                 } else {
-                    $res->updateReservation();
+                    $res->insertLoan();
                     $form = [
                         'status' => 'success',
                         'message' => MODIFICATION_SUCCESS

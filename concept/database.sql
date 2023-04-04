@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 30 mars 2023 à 18:02
+-- Généré le : mar. 04 avr. 2023 à 14:54
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,14 +32,16 @@ CREATE TABLE IF NOT EXISTS `abrzr6_engine` (
   `id` int NOT NULL AUTO_INCREMENT,
   `type` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `abrzr6_engine`
 --
 
 INSERT INTO `abrzr6_engine` (`id`, `type`) VALUES
-(1, '180cv');
+(1, '180cv'),
+(2, '600cv'),
+(3, '1200cv');
 
 -- --------------------------------------------------------
 
@@ -88,8 +90,8 @@ CREATE TABLE IF NOT EXISTS `abzr6_planes` (
 --
 
 INSERT INTO `abzr6_planes` (`id`, `name`, `images`, `description`, `price`, `id_abrzr6_engine`, `id_abzr6_aerodromes`) VALUES
-(6, 'DR-400', '', '50hr', 175, 1, 1),
-(7, 'cessna-citation', '', '', 200, 1, 1);
+(6, 'DR-400', 'uploads/51651654454.jpg', '50hr', 175, 1, 1),
+(7, 'cessna-citation', 'uploads/1511541211.jpg', '', 200, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -110,16 +112,15 @@ CREATE TABLE IF NOT EXISTS `abzr6_reservations` (
   PRIMARY KEY (`id`),
   KEY `reservations_users_FK` (`id_users`),
   KEY `reservations_planes0_FK` (`id_planes`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `abzr6_reservations`
 --
 
 INSERT INTO `abzr6_reservations` (`id`, `loan`, `loanReturn`, `price`, `caution`, `activityType`, `id_users`, `id_planes`) VALUES
-(7, '2023-04-19 00:00:00', '2023-04-30 00:00:00', 0, 2023, 'Réservation', 6, 6),
-(8, '2023-03-30 00:00:00', '2023-03-31 00:00:00', 0, 2023, 'Réservation', 6, 6),
-(9, '2023-04-07 00:00:00', '2023-04-09 00:00:00', 0, 2023, 'Réservation', 6, 6);
+(2, '2023-04-15 00:00:00', '2023-04-16 00:00:00', 0, 2023, 'Réservation', 6, 6),
+(6, '2023-04-08 00:00:00', '2023-04-09 00:00:00', 0, 2023, 'Réservation', 6, 6);
 
 -- --------------------------------------------------------
 
@@ -161,7 +162,6 @@ CREATE TABLE IF NOT EXISTS `abzr6_users` (
 --
 
 INSERT INTO `abzr6_users` (`id`, `firstName`, `lastName`, `postalCode`, `major`, `password`, `city`, `email`, `phoneNumber`) VALUES
-(2, 'Jhon', 'Doe', '', 22, 'azerty', 'compiegne', 'jhon@yahoo.fr', '0617281314'),
 (3, 'Arthur', 'DELCLOQUE', '', 24, '$2y$10$J4jjjv0XL6mztE.nYqtJ9u/HAzvymDiVuqf9Lk4rLFAQXzRoyfm2u', 'COMPIEGNE', 'jean-hugue@yahoo.fr', '0617281315'),
 (4, 'Arthur', 'DELCLOQUE', '', 25, '$2y$10$4HkfxbSMQ629AZ7q9NH5jeHEQqlvxIRvjqc/7APfwSHWyvG67dBvy', 'COMPIEGNE', 'a.delcloque@yahoo.fr', '0617281315'),
 (5, 'Arthur', 'DELCLOQUE', '', 47, '$2y$10$0Y4Iwnj2zy2g6RonztFN9.E3EUjd4J8HgP4nBG4b36OC1tMFc5086', 'COMPIEGNE', 'jeandelarue@yahoo.fr', '0617281315'),
