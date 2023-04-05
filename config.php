@@ -91,4 +91,15 @@ define('MODIFICATION_SUCCESS', 'La modification à été faire avec succes');
 
 
 
+// pour les erreur de la modification de l'user
+define('MODIFICATION_ERROR_FIRSTNAME_NOT_SET', 'Merci de ne pas laisser vide le champ du Prénom');
+define('MODIFICATION_ERROR_LASTNAME_NOT_SET', 'Merci de ne pas laisser vide le champ du Nom');
+define('MODIFICATION_ERROR_AGE_NOT_SET', 'Merci de ne pas laisser vide le champ de l\'âge');
+define('MODIFICATION_ERROR_CITY_NOT_SET', 'Merci de ne pas laisser vide le champ de la ville');
+define('MODIFICATION_ERROR_EMAIL_NOT_SET', 'Merci de ne pas laisser vide le champ de l\'email');
+define('MODIFICATION_ERROR_PHONE_NUMBER_NOT_SET', 'Merci de ne pas laisser vide le champ du numéro de téléphone');
+
+
+
+
 

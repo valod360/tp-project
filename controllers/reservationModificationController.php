@@ -63,7 +63,6 @@ if (count($_POST) > 0) {
             }
         }
     } catch (PDOException $e) {
-        var_dump($e);
         $form = [
             'status' => 'fail',
             'message' => GENERAL_ERROR

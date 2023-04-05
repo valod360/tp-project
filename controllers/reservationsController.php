@@ -16,8 +16,6 @@ $res = new reservation;
 $res->id_user = $_SESSION['user']['id'];
 
 $result = $res->seeLoan();
-$modificationFormSubmitted = false;
-$update = false;
 
 // pour annuller la reservation
 if (!empty($_POST['annulerRes'])) {
@@ -30,7 +28,6 @@ if (!empty($_POST['annulerRes'])) {
 
 //pour passer a la page de modification de la reservation
 if (!empty($_POST['modifierRes'])) {
-    $update = true;
     $res->id_planes = $_POST['id'];
 }
 
@@ -38,15 +35,6 @@ if(!empty($_POST['modifierRes'])){
     header('Location: /modifier-resvervation');
     exit();
 }
-
-
-
-
-
-
-
-
-
 
 require_once '../views/parts/header.php';
 require_once '../views/reservation.php';

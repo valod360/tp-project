@@ -1,0 +1,83 @@
+#userProfil{
+    text-align: center;
+    font-size: 1.3em;
+    margin-right: 4%;
+}
+
+.userProfilContainer{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    margin: 10vh 30% 0 30%;
+    padding: 5% 0 5% 0;
+    >form{
+        display: contents;
+    }
+}
+
+#confirmModification{
+    display: none;
+}
+
+#confirmSupression{
+    
+    margin-top: 5%;
+}
+
+// pour la modal
+
+#iptSupp {
+    background-color: #ff5533;
+    color: #fffffe;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    padding: 0.7rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.modal {
+    display: none;
+    /* La fenêtre modale est cachée par défaut */
+    position: fixed;
+    /* Elle est positionnée par rapport à la fenêtre du navigateur */
+    z-index: 1;
+    /* Elle est au-dessus de tous les autres éléments de la page */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Pour permettre le défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Un fond semi-transparent */
+}
+
+.modal-content {
+    background-color: #fefeff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
