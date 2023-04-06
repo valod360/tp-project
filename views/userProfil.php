@@ -60,7 +60,7 @@
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
                     <h2>Etes vous sur de bien vouloir supprimer votre compte ?</h2>
-                    <p>Cliquer sur le bouton "Confirmer" ci-dessous pour supprimer le compte :</p>
+                    <p>Cliquer sur le bouton une seconde fois ci-dessous pour supprimer le compte :</p>
                     <form name="suppresion" action="/profil" method="post">
                         <input id="confirmSupression" name="confirmSupression" type="submit" value="supprimer le compte">
                     </form>

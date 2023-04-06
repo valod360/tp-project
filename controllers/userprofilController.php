@@ -71,11 +71,17 @@ if (isset($_POST['confirmModification'])) {
     }
 }
 
-
+/**
+ * suppression du compte
+ */
 if (isset($_POST['confirmSupression'])) {
     try {
+        $user->deleteUserReservation();
         $user->deleteUser();
+        unset($_SESSION);
+        session_destroy();
         header('Location: /accueil');
+exit();
     } catch (PDOException $e) {
         $form = [
             'status' => 'fail',

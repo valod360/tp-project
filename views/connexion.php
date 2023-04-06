@@ -4,14 +4,14 @@
             <label for="email">email</label>
             <input type="text" name="email" id="email">
             <?php if(isset($formErrors['email'])){ ?>
-                <p><?= $formErrors['email'] ?></p>
+                <p class="formError"><?= $formErrors['email'] ?></p>
             <?php } ?>
         </div>
         <div>
             <label for="password">mot de passe</label>
             <input type="password" name="password" id="password">
             <?php if(isset($formErrors['password'])){ ?>
-                <p><?= $formErrors['password'] ?></p>
+                <p class="formError"><?= $formErrors['password'] ?></p>
             <?php } ?>
         </div>
         <div class="buttonBox">

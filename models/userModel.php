@@ -90,13 +90,25 @@ class users extends database
     }
 
 
-
-
-    public function deleteUser()
-    {
-        $query = 'DELETE FROM abzr6_users WHERE id = :id';
+    public function deleteUserReservation(){
+        $query = 'DELETE FROM abzr6_reservations WHERE id_users = :id';
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $request->execute();
+
+    }
+
+    public function deleteUser()
+    {
+        try {
+            $query = 'DELETE FROM abzr6_users WHERE id = :id';
+            $request = $this->db->prepare($query);
+            $request->bindValue(':id', $this->id, PDO::PARAM_INT);
+            return $request->execute();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la suppression de l'utilisateur : " . $e->getMessage();
+            // ou vous pouvez enregistrer le message d'erreur dans un fichier de journalisation pour une analyse ultérieure
+            return false;
+        }
     }
 }

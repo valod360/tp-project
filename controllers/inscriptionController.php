@@ -91,10 +91,10 @@ if (count($_POST) > 0) {
                 }else{
                     $formErrors['password'] = $formErrors['confirmPass'] = PASS_ERROR_DIFFERENT_PASS;
                 }
-            }else{
+            }
+        }else{
                 $formErrors['confirmPass'] = PASS_COMFIRM_ERROR_EMPTY;
             }
-        }
 
         //for the succes inscription
         if(count($formErrors) == 0){
