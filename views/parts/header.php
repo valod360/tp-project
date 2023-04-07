@@ -13,6 +13,7 @@
 <body>
     <header>
         <nav class="menu-burger">
+            <span class="burger-icon">&#9776;</span>
             <ul>
                 <li><a href="/accueil" title="Accueil">Accueil</a></li>
             </ul>

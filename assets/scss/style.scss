@@ -17,3 +17,33 @@ p{
     font-family: 'Poppins', sans-serif;
 }
 
+//menu burger
+
+.burger-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-burger ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-burger ul.horizontalList {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    .burger-icon {
+        display: block;
+    }
+    .menu-burger ul.horizontalList {
+        display: none;
+    }
+    .menu-burger ul.horizontalList.open {
+        display: flex;
+        flex-direction: column;
+    }
+}

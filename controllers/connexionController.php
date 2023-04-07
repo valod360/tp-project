@@ -14,7 +14,7 @@ if(count($_POST) > 0){
 
     //verify the email
     if(!empty($_POST['email'])){
-        $user->email = $_POST['email'];
+        $user->email = strip_tags($_POST['email']);
         if($user->checkIfUserExists('email') > 0){
             $password = $user->getPass();
         }else{

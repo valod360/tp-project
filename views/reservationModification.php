@@ -7,7 +7,7 @@
         <h1>modifier votre reservation</h1>
 </section>
 <section  class="resModifForm">
-        <form action="/modifier-<?= $_GET['id'] ?>" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir modifier cette réservation ?');">
+        <form action="/modifier-<?= htmlspecialchars(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT)) ?>" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir modifier cette réservation ?');">
             <div>
                 <label for="dateModificationLoan">date du début a modifier</label>
                 <input type="date" name="dateModificationLoan" id="dateModificationLoan" required>

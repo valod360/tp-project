@@ -10,7 +10,7 @@ if (count($_POST) > 0) {
         //registration of the firstname from the user
         if (!empty($_POST['firstName'])) {
             if (preg_match($regex['firstName'], $_POST['firstName'])) {
-                $user->firstName = $_POST['firstName'];
+                $user->firstName = strip_tags($_POST['firstName']);
             } else {
                 $formErrors['firstName'] = FIRSTNAME_ERROR_INVALID;
             }
@@ -20,7 +20,7 @@ if (count($_POST) > 0) {
         //for the last name
         if (!empty($_POST['lastName'])) {
             if (preg_match($regex['firstName'], $_POST['firstName'])) {
-                $user->lastName = $_POST['lastName'];
+                $user->lastName = strip_tags($_POST['lastName']);
             }
         } else {
             $formErrors['lastName'] = LASTNAME_ERROR_EMPTY;
@@ -29,7 +29,7 @@ if (count($_POST) > 0) {
         //for the city
         if (!empty($_POST['city'])) {
             if (preg_match($regex['city'], $_POST['city'])) {
-                $user->city = $_POST['city'];
+                $user->city = strip_tags($_POST['city']);
             } else {
                 $formErrors['city'] = CITY_ERROR_INVALID;
             }
@@ -66,7 +66,7 @@ if (count($_POST) > 0) {
         //for the phone number
         if(!empty($_POST['phoneNumber'])){
             if(preg_match($regex['phone'], $_POST['phoneNumber'])){
-                $user->phoneNumber = $_POST['phoneNumber'];
+                $user->phoneNumber = strip_tags($_POST['phoneNumber']);
             }else{
                 $formErrors['phoneNumber'] = PHONE_ERROR_INVALID;
             }
